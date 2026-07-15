@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap');
+
+html,
+body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+    /* Stops browser default scrolling to prevent double-scrollbars */
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #121214;
+    /* Matte Obsidian background */
+}
+
+/* ================= SCROLL SNAPPING ENGINE ================= */
+.scroll-container {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
+.page-section {
+    height: 100vh;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    padding-top: 80px;
+}
+
+/* Glassmorphic Navigation Bar */
+.navbar {
+    background-color: rgba(18, 18, 20, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(230, 199, 156, 0.1);
+}
+
+.logo {
+    color: #E6C79C;
+}
+
+/* Luxury Metallic Champagne Gradient */
+.text-gradient {
+    background: linear-gradient(135deg, #E6C79C, #c2a67a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Nav Links States */
+.nav-link {
+    color: rgba(244, 244, 245, 0.6);
+    transition: color 0.3s ease;
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #E6C79C;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 1px;
+    background-color: #E6C79C;
+    transition: width 0.3s ease;
+}
+
+.nav-link.active::after,
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Buttons Styling */
+.btn-primary {
+    background-color: #E6C79C;
+    color: #121214;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    box-shadow: 0 0 15px rgba(230, 199, 156, 0.5);
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    border: 1px solid rgba(244, 244, 245, 0.3);
+    color: #F4F4F5;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    border-color: #E6C79C;
+    color: #E6C79C;
+    background-color: rgba(230, 199, 156, 0.05);
+}
+
+/* Portfolio Filters */
+.btn-filter {
+    background-color: #1E1E22;
+    color: rgba(244, 244, 245, 0.6);
+    border: 1px solid rgba(244, 244, 245, 0.1);
+    transition: all 0.2s ease;
+}
+
+.btn-filter:hover {
+    background-color: #2a2a2f;
+    color: #F4F4F5;
+}
+
+.btn-filter.active {
+    background-color: #E6C79C;
+    color: #121214;
+    border-color: #E6C79C;
+}
+
+/* ================= SCROLL-TRIGGERED ANIMATIONS ================= */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, opacity;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger delays */
+.delay-100 {
+    transition-delay: 100ms;
+}
+
+.delay-200 {
+    transition-delay: 200ms;
+}
+
+.delay-300 {
+    transition-delay: 300ms;
+}
