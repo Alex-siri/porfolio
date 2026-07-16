@@ -26,6 +26,15 @@ body {
     padding-top: 80px;
 }
 
+@media (max-width: 1023px) {
+    #skills.page-section {
+        height: auto;
+        min-height: 100vh;
+        align-items: flex-start;
+        padding-bottom: 48px;
+    }
+}
+
 /* Glassmorphic Navigation Bar */
 .navbar {
     background-color: rgba(18, 18, 20, 0.85);
