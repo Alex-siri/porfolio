@@ -11,10 +11,16 @@ body {
     /* Matte Obsidian background */
 }
 
+img,
+video {
+    max-width: 100%;
+}
+
 /* ================= SCROLL SNAPPING ENGINE ================= */
 .scroll-container {
     height: 100vh;
     overflow-y: scroll;
+    overflow-x: hidden;
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
 }
@@ -26,13 +32,21 @@ body {
     padding-top: 80px;
 }
 
-@media (max-width: 1023px) {
-    #skills.page-section {
-        height: auto;
-        min-height: 100vh;
-        align-items: flex-start;
-        padding-bottom: 48px;
-    }
+.about-image-container {
+    min-height: 360px;
+    height: 100%;
+    overflow: hidden;
+    border: 1px solid rgba(230, 199, 156, 0.1);
+    border-radius: 1rem;
+    background-color: #1E1E22;
+}
+
+.about-image-container img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
 }
 
 /* Glassmorphic Navigation Bar */
@@ -150,4 +164,52 @@ body {
 
 .delay-300 {
     transition-delay: 300ms;
+}
+
+@media (max-width: 1023px) {
+    html,
+    body {
+        height: auto;
+        overflow: auto;
+    }
+
+    .scroll-container {
+        height: auto;
+        min-height: 100vh;
+        overflow: visible;
+        scroll-snap-type: none;
+    }
+
+    .page-section {
+        height: auto;
+        min-height: 100svh;
+        scroll-snap-align: none;
+        align-items: flex-start;
+        padding-top: 96px;
+        padding-bottom: 56px;
+    }
+}
+
+@media (max-width: 640px) {
+    .page-section {
+        padding-top: 88px;
+        padding-bottom: 44px;
+    }
+
+    .about-image-container {
+        min-height: 280px;
+        max-height: 360px;
+    }
+
+    .navbar .btn-primary {
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 380px) {
+    .navbar .btn-primary {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+        letter-spacing: 0.04em;
+    }
 }
